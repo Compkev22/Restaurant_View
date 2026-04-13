@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const AdminLoginForm = () => {
+export const AdminLoginForm = ({ onForgot }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -10,7 +10,7 @@ export const AdminLoginForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="space-y-5">
+        <form onSubmit={handleSubmit} className="space-y-5 animate-fadeIn">
             <div>
                 <label className="block text-xs font-bold text-[#a16207] uppercase mb-1.5 tracking-wide">
                     Usuario Administrador
@@ -43,6 +43,17 @@ export const AdminLoginForm = () => {
             >
                 Entrar al Sistema
             </button>
+
+            {/* Nueva sección: Solo recuperar contraseña */}
+            <div className="mt-6 text-center pt-4 border-t border-orange-100">
+                <button
+                    type="button"
+                    onClick={onForgot}
+                    className="text-xs text-[#a16207] font-bold hover:text-orange-800 transition-colors"
+                >
+                    ¿Olvidaste tu contraseña?
+                </button>
+            </div>
         </form>
     );
 };
