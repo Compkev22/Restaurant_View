@@ -1,38 +1,40 @@
 import { NavLink } from "react-router-dom";
 
 export const AdminSidebar = () => {
-  // Lista de rutas basadas en tu backend
-  const menuItems = [
-    { label: "Dashboard", path: "/admin/dashboard", icon: "📊", exact: true },
-    { label: "Menú y Combos", path: "/admin/dashboard/menu", icon: "🍔" },
-    { label: "Sucursales", path: "/admin/dashboard/branches", icon: "🏪" },
-    { label: "Mesas", path: "/admin/dashboard/tables", icon: "🪑" },
-    { label: "Usuarios", path: "/admin/dashboard/users", icon: "👥" },
-    { label: "Cupones", path: "/admin/dashboard/coupons", icon: "🎟️" },
-  ];
+    // Estas rutas deben coincidir con las que pusimos en el AppRoutes
+    const items = [
+        { label: "Dashboard", path: "/dashboard", exact: true },
+        { label: "Menú y Combos", path: "menu" },
+        { label: "Sucursales", path: "branches" },
+        { label: "Mesas", path: "tables" },
+        { label: "Usuarios", path: "users" },
+        { label: "Cupones", path: "coupons" },
+    ];
 
-  return (
-    <aside className="w-64 bg-[#fffaf2] border-r border-orange-100 min-h-[calc(100vh-4rem)] p-4">
-      <ul className="space-y-2">
-        {menuItems.map((item) => (
-          <li key={item.path}>
-            <NavLink
-              to={item.path}
-              end={item.exact}
-              className={({ isActive }) =>
-                `flex items-center gap-3 px-4 py-3 rounded-xl font-bold text-sm transition-all cursor-pointer ${
-                  isActive
-                    ? "bg-orange-100 text-[#a16207] shadow-sm border border-orange-200" // Estilo cuando estás en la página
-                    : "text-gray-600 hover:bg-orange-50 hover:text-[#a16207]" // Estilo normal
-                }`
-              }
-            >
-              <span className="text-lg">{item.icon}</span>
-              {item.label}
-            </NavLink>
-          </li>
-        ))}
-      </ul>
-    </aside>
-  );
+    return (
+        <aside className="w-60 bg-white min-h-[calc(100vh-4rem)] p-4 shadow-sm border-r border-gray-100 flex flex-col">
+            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4 px-4">
+                Administración
+            </p>
+            <ul className="space-y-1 flex-1">
+                {items.map((item) => (
+                    <li key={item.label}>
+                        <NavLink
+                            to={item.path}
+                            end={item.exact}
+                            className={({ isActive }) =>
+                                `block px-4 py-2 rounded-lg font-medium transition-colors ${
+                                    isActive
+                                        ? "bg-red-50 text-[#dc2626]" // Estilo activo estilo KFC
+                                        : "text-gray-700 hover:bg-gray-100"
+                                }`
+                            }
+                        >
+                            {item.label}
+                        </NavLink>
+                    </li>
+                ))}
+            </ul>
+        </aside>
+    );
 };

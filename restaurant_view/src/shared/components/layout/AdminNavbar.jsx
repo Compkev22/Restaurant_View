@@ -1,16 +1,32 @@
+import imgLogo from "../../../assets/img/KinalFriedChickenLogo.png";
+
 export const AdminNavbar = () => {
-  return (
-    <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
-      <div className="max-w-full mx-auto px-6 h-16 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <img src="\src\assets\img\KinalFriedChickenLogo.png" alt="Logo" className="h-8 w-auto" />
-          <span className="font-black text-gray-900 tracking-tight">KFC ADMIN</span>
-        </div>
-        <div className="flex items-center gap-4">
-            <span className="text-xs font-bold text-gray-500">Kevin Velásquez</span>
-            <div className="w-9 h-9 rounded-full bg-red-700 flex items-center justify-center text-white font-bold text-xs shadow-md">KV</div>
-        </div>
-      </div>
-    </nav>
-  );
+    return (
+        <nav className="bg-white shadow-md sticky top-0 z-50 border-b border-gray-100">
+            <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+                
+                {/* Logo + Título (Estilo Profe con imagen de Kevin) */}
+                <div className="flex items-center gap-3">
+                    <img
+                        src={imgLogo}
+                        alt="KFC Logo"
+                        className="h-10 w-auto object-contain"
+                    />
+                    <h1 className="font-black text-gray-900 text-lg tracking-tight">
+                        KFC ADMIN
+                    </h1>
+                </div>
+
+                {/* Info de Usuario (Estilo Kevin) */}
+                <div className="flex items-center gap-4">
+                    <span className="hidden md:block text-xs font-bold text-gray-500 uppercase tracking-wider">
+                        Kevin Velásquez
+                    </span>
+                    <div className="w-10 h-10 rounded-full bg-[#dc2626] flex items-center justify-center text-white font-bold shadow-md border-2 border-white">
+                        KV
+                    </div>
+                </div>
+            </div>
+        </nav>
+    );
 };

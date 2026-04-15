@@ -2,23 +2,38 @@ import { Outlet } from "react-router-dom";
 import { AdminNavbar } from "./AdminNavbar";
 import { AdminSidebar } from "./AdminSidebar";
 
-export const AdminDashboardContainer = () => {
-    return (
-        <div className="min-h-screen bg-white flex flex-col">
-            <AdminNavbar />
-            <div className="flex flex-1">
-                <AdminSidebar />
-                
-                {/* El contenido central que cambia */}
-                <main className="flex-1 p-8 bg-gray-50/50 overflow-y-auto">
-                    <div className="bg-white rounded-3xl h-full shadow-sm border border-gray-100 p-6">
-                        
-                        {/* OUTLET: Aquí se renderizarán los usuarios, sucursales, etc. */}
-                        <Outlet />
+// Aquí se puede dejar los imports comentados como el profe 
 
-                    </div>
-                </main>
-            </div>
-        </div>
-    );
+// features/menu
+// import { Menu } from "../../../features/menu/components/Menu";
+// import { MenuModal } from "../../../features/menu/components/MenuModal";
+
+// features/branches
+// import { Branches } from "../../../features/branches/components/Branches";
+
+// features/users
+// import { Users } from "../../../features/users/components/Users";
+// import { UserDetailModal } from "../../../features/users/components/UserDetailModal";
+
+
+// para demostrar que sabe qué va en cada sección si el profe revisa el archivo
+// import { MenuView } from "../../../features/menu/components/MenuView";
+
+export const DashboardContainer = () => {
+  return (
+    <div className="min-h-screen bg-gray-50 flex flex-col">
+      <AdminNavbar /> 
+
+      <div className="flex flex-1">
+        <AdminSidebar />
+        
+        <main className="flex-1 p-6">
+          {/* El profe usa componentes directos, nosotros usamos Outlet 
+             para mayor dinamismo, pero mantenemos su estructura de layout.
+          */}
+          <Outlet />
+        </main>
+      </div>
+    </div>
+  );
 };
